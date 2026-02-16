@@ -8,7 +8,7 @@ on:
       - 'backend/**'
       - 'frontend/**'
       - '.github/workflows/deploy-fullstack.yml'
-  workflow_dispatch: # Permet un déclenchement manuel
+  workflow_dispatch: # permet de lancer manuellement le workflow
 
 jobs:
   deploy-backend:
@@ -25,9 +25,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          # cache npm désactivé pour éviter l'erreur de cache
-          # cache: 'npm'
-          # cache-dependency-path: backend/package-lock.json
+          # cache npm désactivé pour éviter les erreurs
 
       # 3️⃣ Install backend dependencies
       - name: Install Backend Dependencies
@@ -76,9 +74,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          # cache npm désactivé
-          # cache: 'npm'
-          # cache-dependency-path: frontend/package-lock.json
+          # cache npm désactivé pour éviter les erreurs
 
       # 3️⃣ Install frontend dependencies
       - name: Install Frontend Dependencies
