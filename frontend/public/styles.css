@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.form-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.form-container h2 {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.users-container h2 {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+#usersList {
+    display: grid;
+    gap: 10px;
+}
+
+.user-card {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #007bff;
+}
+
+.user-card h3 {
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.user-card p {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.user-card .actions {
+    display: flex;
+    gap: 10px;
+}
+
+.user-card button {
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.user-card .delete-btn {
+    background-color: #dc3545;
+}
+
+.user-card .delete-btn:hover {
+    background-color: #c82333;
+}
+
+.user-card .edit-btn {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.user-card .edit-btn:hover {
+    background-color: #e0a800;
+}

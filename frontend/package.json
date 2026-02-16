@@ -1,0 +1,19 @@
+{
+  "name": "mon-projet-frontend",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "serve public",
+    "build": "echo 'Build step'",
+    "dev": "serve public"
+  },
+  "dependencies": {
+    "serve": "^14.2.1"
+  },
+  "scripts": {
+    "build": "echo 'Copying static files' && mkdir -p dist && cp -r public/* dist/",
+    "test": "echo 'Add your tests here'",
+    "lint": "eslint public",
+    "format": "prettier --write public",
+    "vercel-build": "npm run build"
+  }
+}
