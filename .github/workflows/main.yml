@@ -8,6 +8,7 @@ on:
       - 'backend/**'
       - 'frontend/**'
       - '.github/workflows/deploy-fullstack.yml'
+  workflow_dispatch: # permet un déclenchement manuel si besoin
 
 jobs:
   deploy-backend:
@@ -19,7 +20,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2️⃣ Node.js
+      # 2️⃣ Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -33,7 +34,7 @@ jobs:
         run: npm ci
 
       # 4️⃣ Run backend tests (optionnel)
-      - name: Run tests
+      - name: Run Backend Tests
         working-directory: ./backend
         run: npm test || echo "No tests configured"
         continue-on-error: true
@@ -69,7 +70,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2️⃣ Node.js
+      # 2️⃣ Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -99,7 +100,7 @@ jobs:
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
 
       # 7️⃣ Build frontend
-      - name: Build Project Artifacts
+      - name: Build Frontend Artifacts
         working-directory: ./frontend
         run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
 
