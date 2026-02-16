@@ -3,7 +3,7 @@ name: Deploy Fullstack to Vercel
 on:
   push:
     branches:
-      - main
+      - master
     paths:
       - 'backend/**'
       - 'frontend/**'
