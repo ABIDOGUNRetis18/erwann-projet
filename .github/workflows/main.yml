@@ -8,7 +8,7 @@ on:
       - 'backend/**'
       - 'frontend/**'
       - '.github/workflows/deploy-fullstack.yml'
-  workflow_dispatch: # permet de lancer manuellement le workflow
+  workflow_dispatch: # permet un déclenchement manuel
 
 jobs:
   deploy-backend:
@@ -20,12 +20,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2️⃣ Setup Node.js
+      # 2️⃣ Setup Node.js (sans cache pour éviter les erreurs)
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          # cache npm désactivé pour éviter les erreurs
 
       # 3️⃣ Install backend dependencies
       - name: Install Backend Dependencies
@@ -42,7 +41,7 @@ jobs:
       - name: Install Vercel CLI
         run: npm install -g vercel
 
-      # 6️⃣ Pull Vercel environment
+      # 6️⃣ Pull Vercel environment variables
       - name: Pull Vercel Environment Information
         working-directory: ./backend
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
@@ -69,12 +68,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2️⃣ Setup Node.js
+      # 2️⃣ Setup Node.js (sans cache)
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          # cache npm désactivé pour éviter les erreurs
 
       # 3️⃣ Install frontend dependencies
       - name: Install Frontend Dependencies
@@ -92,7 +90,7 @@ jobs:
       - name: Install Vercel CLI
         run: npm install -g vercel
 
-      # 6️⃣ Pull Vercel environment
+      # 6️⃣ Pull Vercel environment variables
       - name: Pull Vercel Environment Information
         working-directory: ./frontend
         run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
