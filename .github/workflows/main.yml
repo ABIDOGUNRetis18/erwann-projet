@@ -29,7 +29,7 @@ jobs:
       # 3️⃣ Install backend dependencies
       - name: Install Backend Dependencies
         working-directory: ./backend
-        run: npm ci
+        run: npm ci   # ✅ fonctionne car package-lock.json est présent
 
       # 4️⃣ Run backend tests (optionnel)
       - name: Run Backend Tests
@@ -68,7 +68,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2️⃣ Setup Node.js (sans cache)
+      # 2️⃣ Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -77,7 +77,7 @@ jobs:
       # 3️⃣ Install frontend dependencies
       - name: Install Frontend Dependencies
         working-directory: ./frontend
-        run: npm ci
+        run: npm ci   # ✅ fonctionne car package-lock.json est présent
 
       # 4️⃣ Build frontend
       - name: Build Frontend
